@@ -41,9 +41,12 @@ async def upload_pdf(file: UploadFile = File(...)):
     # Detect themes
     themes = detect_themes(cleaned_text)
 
+            # Detect themes
+    themes = detect_themes(cleaned_text)
+
     return {
         "message": "File uploaded, processed, and analyzed!",
         "filename": file.filename,
         "text_preview": cleaned_text[:300],
-        "themes_detected": themes
-    }
+        "themes_detected": themes
+    }
