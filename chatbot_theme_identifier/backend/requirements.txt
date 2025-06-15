@@ -21,3 +21,6 @@ aiofiles
 gradio>=4.0.0
 faiss-cpu
 cohere
+typing-extensions
+tiktoken
+requests
