@@ -25,3 +25,4 @@ typing-extensions
 tiktoken
 requests
 langchain-huggingface
+pypdf
