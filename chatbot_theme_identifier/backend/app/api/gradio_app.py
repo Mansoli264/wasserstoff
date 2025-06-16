@@ -11,8 +11,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 if not os.getenv("COHERE_API_KEY"):
     raise ValueError("COHERE_API_KEY environment variable is not set.")
 
-import os
-
+# ✅ Path to documents relative to this file
 DOCS_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "../../docs/tests")
 )
@@ -22,7 +21,6 @@ EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 # ========== Load Documents ==========
 docs = []
 
-# Load all .txt files
 for filename in os.listdir(DOCS_PATH):
     file_path = os.path.join(DOCS_PATH, filename)
     if filename.endswith(".txt"):
@@ -51,7 +49,14 @@ qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 def answer_question(query):
     return qa_chain.run(query)
 
-demo = gr.Interface(fn=answer_question, inputs="text", outputs="text", title="Chatbot Theme Identifier")
+demo = gr.Interface(
+    fn=answer_question,
+    inputs="text",
+    outputs="text",
+    title="Chatbot Theme Identifier"
+)
 
+#  Launch with server_name and server_port for Render
 if __name__ == "__main__":
-    demo.launch()
+    port = int(os.environ.get("PORT", 7860))
+    demo.launch(server_name="0.0.0.0", server_port=port)
