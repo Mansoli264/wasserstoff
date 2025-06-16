@@ -4,7 +4,7 @@ services:
     env: python
     plan: free
     buildCommand: pip install -r chatbot_theme_identifier/requirements.txt
-    startCommand: python gradio_app.py
+    startCommand: python chatbot_theme_identifier/interface/app.py
     envVars:
       - key: COHERE_API_KEY
         value: KEmdEtLcJsUtMvdbgSzw5TWlEdhcFnu408GEgOxQ
