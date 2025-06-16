@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: wasserstoff-chatbot_theme_identifier
+    env: python
+    plan: free
+    buildCommand: pip install -r chatbot_theme_identifier/requirements.txt
+    startCommand: python chatbot_theme_identifier/interface/app.py
+    envVars:
+      - key: COHERE_API_KEY
+        value: KEmdEtLcJsUtMvdbgSzw5TWlEdhcFnu408GEgOxQ
