@@ -11,7 +11,12 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 if not os.getenv("COHERE_API_KEY"):
     raise ValueError("COHERE_API_KEY environment variable is not set.")
 
-DOCS_PATH = r"C:\Users\solan\Documents\wasserstoff task\wasserstoff\chatbot_theme_identifier\backend\docs"
+import os
+
+DOCS_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "../../../docs/tests")
+)
+
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 # ========== Load Documents ==========
