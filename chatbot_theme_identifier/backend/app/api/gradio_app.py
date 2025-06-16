@@ -14,7 +14,7 @@ if not os.getenv("COHERE_API_KEY"):
 import os
 
 DOCS_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "../../../docs/tests")
+    os.path.join(os.path.dirname(__file__), "../../docs/tests")
 )
 
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
