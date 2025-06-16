@@ -58,5 +58,6 @@ demo = gr.Interface(
 
 #  Launch with server_name and server_port for Render
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 7860))
-    demo.launch(server_name="0.0.0.0", server_port=port)
+    PORT = int(os.environ.get('PORT', 7860))
+    demo.launch(server_name="0.0.0.0", server_port=PORT)
+
