@@ -11,7 +11,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 if not os.getenv("COHERE_API_KEY"):
     raise ValueError("COHERE_API_KEY environment variable is not set.")
 
-# ✅ Path to documents relative to this file
+#  Path to documents relative to this file
 DOCS_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "../../docs/tests")
 )
@@ -41,7 +41,7 @@ split_docs = text_splitter.split_documents(docs)
 db = FAISS.from_documents(split_docs, embedding)
 
 # ========== LLM + QA Chain ==========
-llm = ChatCohere(model="command-xlarge-nightly", temperature=0)
+llm = ChatCohere(model="command-light", temperature=0)
 retriever = db.as_retriever()
 qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
