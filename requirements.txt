@@ -24,3 +24,4 @@ cohere
 typing-extensions
 tiktoken
 requests
+langchain-huggingface
